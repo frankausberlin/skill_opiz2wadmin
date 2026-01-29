@@ -1,3 +1,6 @@
+<font size=-2>
+A small note: the skill was completely created by kilocode (sonnet 4.5 / skill: skill-creator) (~ $2).
+</font><hr><br>
 # 🍊 Orange Pi Zero 2W Ubuntu Administration & Optimization Skill
 
 A comprehensive skill for [kilocode-cli](https://github.com/kilocode/kilocode-cli) that provides specialized administration, optimization, and troubleshooting capabilities for **Orange Pi Zero 2W** running **Ubuntu 24.04**.
@@ -377,6 +380,17 @@ bash ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin/scripts/setup_optimization
 ## 🤝 Contributing
 
 Improvements and additional reference material are welcome! Please submit pull requests or open issues.
+
+## ⚠️ Disclaimer
+
+**NO WARRANTY OR RESPONSIBILITY**: This skill and all associated scripts, configurations, and documentation are provided "AS IS" without warranty of any kind, express or implied. The author takes no responsibility for any damage, data loss, system instability, or other issues that may arise from using this skill. Use at your own risk.
+
+**By using this skill, you acknowledge that:**
+- You are responsible for backing up your data before applying any optimizations
+- System modifications can have unintended consequences
+- SD card wear reduction strategies involve trade-offs (e.g., log data may be lost on power failure)
+- You should test all changes in a non-production environment first
+- The author is not liable for any damages or losses
 
 ## 📜 License
 
