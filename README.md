@@ -185,7 +185,7 @@ docker run -d -p 8088:8080 searxng/searxng
 
 ```bash
 # Clone or download this repository
-git clone https://github.com/yourusername/skill_opiz2wadmin.git
+git clone https://github.com/frankausberlin/skill_opiz2wadmin
 cd skill_opiz2wadmin
 ```
 
