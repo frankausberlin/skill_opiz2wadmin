@@ -182,8 +182,8 @@ docker run -d -p 8088:8080 searxng/searxng
 
 ```bash
 # Clone or download this repository
-git clone https://github.com/yourusername/orangepi-zero-2w-ubuntu-admin.git
-cd orangepi-zero-2w-ubuntu-admin
+git clone https://github.com/yourusername/skill_opiz2wadmin.git
+cd skill_opiz2wadmin
 ```
 
 Or download and extract the ZIP file.
@@ -196,8 +196,8 @@ Copy the skill to your kilocode-cli skills directory:
 # Create skills directory if it doesn't exist
 mkdir -p ~/.kilocode/skills
 
-# Copy the skill (ensure you're in the skill directory)
-cp -r orangepi-zero-2w-ubuntu-admin ~/.kilocode/skills/
+# Copy the skill (ensure you're in the cloned repository directory)
+cp -r . ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin/
 
 # Verify installation
 ls ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin
@@ -302,14 +302,14 @@ The skill provides step-by-step guidance for:
 
 ### 📖 Reference Documentation
 
-- [`references/hardware_specs.md`](orangepi-zero-2w-ubuntu-admin/references/hardware_specs.md): Complete hardware specifications
-- [`references/sd_card_optimization.md`](orangepi-zero-2w-ubuntu-admin/references/sd_card_optimization.md): Detailed write-reduction strategies
-- [`references/troubleshooting_guide.md`](orangepi-zero-2w-ubuntu-admin/references/troubleshooting_guide.md): Comprehensive troubleshooting procedures for common issues
-- [`references/monitoring_commands.md`](orangepi-zero-2w-ubuntu-admin/references/monitoring_commands.md): Quick reference for system monitoring commands
+- [`references/hardware_specs.md`](references/hardware_specs.md): Complete hardware specifications
+- [`references/sd_card_optimization.md`](references/sd_card_optimization.md): Detailed write-reduction strategies
+- [`references/troubleshooting_guide.md`](references/troubleshooting_guide.md): Comprehensive troubleshooting procedures for common issues
+- [`references/monitoring_commands.md`](references/monitoring_commands.md): Quick reference for system monitoring commands
 
 ### 🤖 Automation Scripts
 
-- [`scripts/setup_optimization.sh`](orangepi-zero-2w-ubuntu-admin/scripts/setup_optimization.sh): One-command system optimization
+- [`scripts/setup_optimization.sh`](scripts/setup_optimization.sh): One-command system optimization
 
 ## 🎓 Understanding the Optimizations
 
