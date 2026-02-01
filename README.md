@@ -193,17 +193,29 @@ Or download and extract the ZIP file.
 
 ### Step 2: Install the Skill
 
-Copy the skill to your kilocode-cli skills directory:
+The skill directory name **must match** the `name` field in `SKILL.md`. Copy the entire skill directory to your Kilo Code skills folder:
+
+**For global access (all projects):**
 
 ```bash
 # Create skills directory if it doesn't exist
 mkdir -p ~/.kilocode/skills
 
-# Copy the skill (ensure you're in the cloned repository directory)
+# Copy the entire directory (ensure the directory name matches the skill name)
 cp -r . ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin/
 
 # Verify installation
 ls ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin
+```
+
+**For project-specific access:**
+
+```bash
+# In your project directory
+mkdir -p .kilocode/skills
+
+# Copy the entire directory
+cp -r /path/to/skill_opiz2wadmin .kilocode/skills/orangepi-zero-2w-ubuntu-admin/
 ```
 
 You should see:
@@ -211,29 +223,38 @@ You should see:
 SKILL.md  README.md  references/  scripts/  assets/
 ```
 
-### Step 3: Verify MCP Servers
+⚠️ **Important**: The directory name **must** match the `name` field in the SKILL.md frontmatter (in this case: `orangepi-zero-2w-ubuntu-admin`).
 
-Test that MCP servers are accessible:
+### Step 3: Reload VSCode
 
-```bash
-# Start kilocode-cli
-kilocode
+Skills are loaded when Kilo Code initializes. After installing the skill:
 
-# In the kilocode-cli prompt, check MCP servers:
-> /mcp list
+```
+Cmd+Shift+P (Mac) or Ctrl+Shift+P (Windows/Linux)
+→ "Developer: Reload Window"
 ```
 
-You should see `searxng`, `context7`, `sequentialthinking`, and `filesystem` listed.
+Or simply restart VSCode.
 
-### Step 4: Test the Skill
+### Step 4: Verify the Skill is Loaded
 
-In kilocode-cli, try invoking the skill:
+Open Kilo Code and ask:
 
-```bash
-> How do I optimize my Orange Pi Zero 2W for SD card longevity?
+```
+Do you have access to the orangepi-zero-2w-ubuntu-admin skill?
 ```
 
-The agent should automatically recognize the skill and provide detailed guidance.
+If the agent confirms it has access, the skill is properly installed. If not, check the Output panel (`View` → `Output` → Select "Kilo Code") for any error messages.
+
+### Step 5: Test the Skill
+
+Try a query that should trigger the skill:
+
+```
+How do I optimize my Orange Pi Zero 2W for SD card longevity?
+```
+
+The agent should automatically recognize the skill and provide detailed guidance. You'll see it read the `SKILL.md` file in the conversation.
 
 ## 📖 Usage
 
@@ -348,19 +369,51 @@ With proper optimization, you can **extend SD card life from months to years**.
 
 ## 🔍 Troubleshooting
 
-### Skill Not Activating
+### Skill Not Loading
 
 If the skill doesn't activate automatically:
 
-```bash
-# Verify skill installation
-ls ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin/SKILL.md
+1. **Check the Output panel**: Open `View` → `Output` → Select "Kilo Code" from dropdown. Look for skill-related errors.
 
-# Check skill metadata
-head -20 ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin/SKILL.md
+2. **Verify frontmatter**: Ensure the `name` in SKILL.md **exactly matches** the directory name:
+
+```bash
+# Check your skill's frontmatter
+head -5 ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin/SKILL.md
 ```
 
-Ensure the YAML frontmatter has correct `name` and `description` fields.
+Should show:
+```yaml
+---
+name: orangepi-zero-2w-ubuntu-admin
+description: ...
+---
+```
+
+3. **Verify file location**: Ensure `SKILL.md` is directly inside the skill directory:
+
+```bash
+ls ~/.kilocode/skills/orangepi-zero-2w-ubuntu-admin/SKILL.md
+```
+
+4. **Reload VSCode**: Skills are loaded at startup. Use `Cmd+Shift+P` → "Developer: Reload Window"
+
+5. **Ask the agent**: Verify the skill is available:
+```
+Do you have access to the orangepi-zero-2w-ubuntu-admin skill?
+```
+
+### Common Errors
+
+| Error | Cause | Solution |
+|-------|-------|----------|
+| "missing required 'name' field" | No `name` in frontmatter | Add `name: orangepi-zero-2w-ubuntu-admin` |
+| "name doesn't match directory" | Mismatch between frontmatter and folder name | Make `name` match directory name exactly |
+| Skill not appearing | Wrong directory structure | Verify path follows `skills/orangepi-zero-2w-ubuntu-admin/SKILL.md` |
+
+### Checking if Skill Was Used
+
+To see if the skill was actually used during a conversation, look for a `read_file` tool call in the chat that targets the `SKILL.md` file. When the agent uses a skill, it reads the full skill file into context—this appears as a file read operation in the conversation.
 
 ### MCP Servers Not Working
 
