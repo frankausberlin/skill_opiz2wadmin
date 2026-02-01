@@ -34,7 +34,7 @@ Before installing this skill, ensure you have the following:
 ### 1. 🖥️ Orange Pi Zero 2W Hardware
 
 - Orange Pi Zero 2W with 4GB RAM
-- 32GB+ SD card (Lexar recommended, but any quality Class 10 or UHS-1 works)
+- 64GB+ SD card (SanDisk recommended, but any quality Class 10 or UHS-1 works)
 - Ubuntu 24.04 LTS installed ([Download from Orange Pi](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-Zero-2W.html))
 - Power supply (5V/2A minimum, 5V/3A recommended)
 - Network connectivity (Wi-Fi or Ethernet via expansion board)
@@ -285,8 +285,17 @@ This script will:
 - ✅ Set up Tmpfs (RAM-based `/tmp`)
 - ✅ Optimize `/etc/fstab` with `noatime`
 - ✅ Configure systemd journal for volatile storage
+- ✅ **Set up Agent Journaling System** (creates `~/labor/agent_journal` and documentation)
 
 **Reboot after running the script** to activate all optimizations.
+
+## 📝 Agent Journaling
+
+To ensure continuity and transparency, all agents using this skill are required to document their activities.
+
+- **Journal Directory**: `~/labor/agent_journal`
+- **Instructions**: See [`INSTRUCTION_FOR_AGENT_JOURNAL.md`](INSTRUCTION_FOR_AGENT_JOURNAL.md) for naming conventions and report structure.
+- **Purpose**: Allows future agent sessions to quickly understand what was done, why, and how.
 
 ## 📚 Key Features
 

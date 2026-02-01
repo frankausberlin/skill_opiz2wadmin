@@ -9,7 +9,7 @@ The Orange Pi Zero 2W is a compact, high-performance single-board computer (SBC)
   - **GPU**: Mali G31 MP2 (Supports OpenGL ES 1.0/2.0/3.2, OpenCL 2.0, Vulkan 1.1)
 - **RAM**: 4GB LPDDR4
 - **Storage**: 
-  - MicroSD card slot (Current setup: 32GB Lexar SD card)
+  - MicroSD card slot (Current setup: 64GB SanDisk SD card)
   - SPI Flash: 16MB
 
 ## Connectivity

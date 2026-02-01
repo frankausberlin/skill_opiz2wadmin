@@ -52,6 +52,7 @@ echo "  • Configure Zram (compressed swap in RAM)"
 echo "  • Set up Tmpfs (RAM-based /tmp)"
 echo "  • Optimize /etc/fstab with noatime"
 echo "  • Configure Journald for volatile storage"
+echo "  • Set up Agent Journaling System"
 echo ""
 print_warning "IMPORTANT: Changes will take effect after reboot"
 print_warning "Ensure you have a backup before proceeding"
@@ -193,7 +194,18 @@ EOF
 
 print_success "Configured Journald for volatile storage"
 
-# 6. Disable Unnecessary Services (Optional)
+# 6. Set up Agent Journaling System
+print_header "Setting up Agent Journaling System"
+mkdir -p /home/frank/labor/agent_journal
+# Copy instructions to the journal folder if they exist in the skill directory
+SKILL_DIR=$(dirname "$(readlink -f "$0")")/..
+if [ -f "$SKILL_DIR/INSTRUCTION_FOR_AGENT_JOURNAL.md" ]; then
+    cp "$SKILL_DIR/INSTRUCTION_FOR_AGENT_JOURNAL.md" /home/frank/labor/agent_journal/
+    print_success "Copied instructions to /home/frank/labor/agent_journal/"
+fi
+print_success "Created /home/frank/labor/agent_journal"
+
+# 7. Disable Unnecessary Services (Optional)
 print_header "Checking System Services"
 
 # Check for unattended-upgrades (optional to disable)
@@ -220,6 +232,7 @@ echo "  ✓ Zram configured (50% of RAM)"
 echo "  ✓ Tmpfs configured for /tmp and /var/tmp"
 echo "  ✓ noatime added to root partition"
 echo "  ✓ Journald configured for volatile storage"
+echo "  ✓ Agent Journaling System initialized"
 echo ""
 
 # Show current fstab for review

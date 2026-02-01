@@ -22,7 +22,7 @@ This skill provides specialized knowledge for administering an Orange Pi Zero 2W
 
 The Orange Pi Zero 2W is an ARM-based single-board computer with limited resources (4GB RAM, SD card storage). This skill provides:
 
-1. **SD Card Protection**: Write-reduction strategies to extend the lifespan of the 32GB Lexar SD card
+1. **SD Card Protection**: Write-reduction strategies to extend the lifespan of the 64GB SanDisk SD card
 2. **System Optimization**: Memory management, swap configuration, and performance tuning for ARM architecture
 3. **Thermal Management**: CPU frequency scaling and temperature monitoring for fanless operation
 4. **Network Configuration**: Wi-Fi, Ethernet, and connectivity optimization for IoT applications
@@ -34,7 +34,7 @@ The Orange Pi Zero 2W is an ARM-based single-board computer with limited resourc
 - **Device**: Orange Pi Zero 2W
 - **SoC**: Allwinner H618 (Quad-core Cortex-A53 @ 1.5GHz)
 - **RAM**: 4GB LPDDR4
-- **Storage**: 32GB Lexar SD card (limited write cycles)
+- **Storage**: 64GB SanDisk SD card (limited write cycles)
 - **Connectivity**: Dual-band Wi-Fi, Bluetooth 5.0, USB Type-C
 
 **Reference**: Consult [`references/hardware_specs.md`](references/hardware_specs.md) for complete hardware specifications.
@@ -408,11 +408,12 @@ When implementing solutions requiring external libraries or tools:
 1. **Always prioritize SD card longevity**: Every optimization should consider write impact
 2. **Monitor before optimizing**: Establish baseline metrics before changes
 3. **Test incrementally**: Apply one optimization at a time, verify stability
-4. **Document changes**: Keep notes on modifications for troubleshooting
+4. **Document changes**: Keep notes on modifications for troubleshooting in `~/labor/agent_journal` according to [`INSTRUCTION_FOR_AGENT_JOURNAL.md`](INSTRUCTION_FOR_AGENT_JOURNAL.md)
 5. **Plan for failure**: SD cards will eventually fail, have backup and recovery strategy
 6. **Balance performance vs. longevity**: Don't over-optimize at the cost of usability
 7. **Use appropriate tools**: Leverage MCP servers for research and documentation
 8. **Stay updated**: Check for kernel and firmware updates periodically (monthly)
+9. **Agent Journaling**: Every significant action or task performed MUST be documented in the `~/labor/agent_journal` directory following the guidelines in [`INSTRUCTION_FOR_AGENT_JOURNAL.md`](INSTRUCTION_FOR_AGENT_JOURNAL.md). This ensures continuity and context for future agent sessions.
 
 ## When to Use This Skill
 
